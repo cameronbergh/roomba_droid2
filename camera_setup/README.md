@@ -64,12 +64,14 @@ docker run -it --rm \
 
 1.  **Start your Docker container** using the modified `docker run` command from Step 3. You should now be at a shell prompt inside the container.
 
-2.  **Update package lists and install `usb_cam`:**
+2.  **Run the setup script to install `usb_cam`:**
+    Navigate to where your project files are mounted in Docker (e.g., `/home/ros/roomba_droid2` if you mounted `~/roomba_droid2` to that location). Then run the script:
     ```bash
     # Inside the Docker container:
-    sudo apt-get update
-    sudo apt-get install -y ros-humble-usb-cam
+    cd /path/to/your/project/camera_setup # Adjust this path to where camera_setup is located in your container
+    bash camera_setup.sh
     ```
+    This script will run `sudo apt-get update` and then `sudo apt-get install -y ros-humble-usb-cam`.
 
 ## 5. Running the Camera Node (Inside Docker)
 
